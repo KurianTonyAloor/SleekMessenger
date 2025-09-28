@@ -1,0 +1,63 @@
+/* --- Page/View Transitions --- */
+/* Example class to fade in a view */
+.view-fade-in {
+    animation: fadeIn 0.5s ease-in-out forwards;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+/* --- Micro-interactions & Component Animations --- */
+
+/* Animate new messages appearing */
+.message.new-message {
+    animation: slideUpFadeIn 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
+}
+
+@keyframes slideUpFadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Typing indicator animation */
+.typing-indicator span {
+    display: inline-block;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background-color: var(--secondary-text);
+    margin: 0 2px;
+    animation: bounce 1.2s infinite ease-in-out;
+}
+
+.typing-indicator span:nth-child(2) {
+    animation-delay: -0.2s;
+}
+
+.typing-indicator span:nth-child(3) {
+    animation-delay: -0.4s;
+}
+
+@keyframes bounce {
+    0%, 80%, 100% {
+        transform: scale(0);
+    }
+    40% {
+        transform: scale(1.0);
+    }
+}
+
+/* Add a subtle hover effect to contacts in the sidebar */
+.contact-item:hover {
+    background-color: var(--tertiary-bg);
+    transform: translateX(5px);
+    transition: background-color var(--transition-speed), transform var(--transition-speed);
+}
